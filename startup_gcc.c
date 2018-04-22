@@ -20,7 +20,7 @@ static void IntDefaultHandler(void);
 //
 //*****************************************************************************
 extern int main(void);
-extern void scheduler_Handler(void);
+//extern void scheduler_Handler(void);
 extern void SVChandler(void);
 
 //*****************************************************************************
@@ -44,11 +44,11 @@ void (*const g_pfnVectors[])(void) =
         0,                                  // Reserved
         0,                                  // Reserved
         0,                                  // Reserved
-        scheduler_Handler,                  // SVCall handler
+        IntDefaultHandler, //scheduler_Handler,                  // SVCall handler
         IntDefaultHandler,                  // Debug monitor handler
         0,                                  // Reserved
         IntDefaultHandler,                  // The PendSV handler
-        scheduler_Handler,                  // The SysTick handler
+        IntDefaultHandler, //scheduler_Handler,                  // The SysTick handler
         IntDefaultHandler,                  // GPIO Port A
         IntDefaultHandler,                  // GPIO Port B
         IntDefaultHandler,                  // GPIO Port C
@@ -168,7 +168,7 @@ NmiSR(void)
         {
         }
 }
-extern void printFault();
+//extern void printFault();
 //*****************************************************************************
 //
 // This is the code that gets called when the processor receives a fault
@@ -180,7 +180,7 @@ static void
 FaultISR(void)
 {
         //Print out the fault information
-        printFault();
+        //printFault();
         //
         // Go into an infinite loop.
         //
@@ -201,7 +201,7 @@ static void
 IntDefaultHandler(void)
 {
         //Print out the fault information
-        printFault();
+        //printFault();
         //
         // Go into an infinite loop.
         //
