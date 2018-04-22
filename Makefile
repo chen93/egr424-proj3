@@ -1,5 +1,5 @@
 # Modify as appropriate
-STELLARISWARE=C:/StellarisWare
+STELLARISWARE=/home/chenw/Desktop/qemu/tests/StellarisWare
 
 CC=arm-none-eabi-gcc -Wall -Os -march=armv7-m -mcpu=cortex-m3 -mthumb -mfix-cortex-m3-ldrd -Wl,--gc-sections -g
 proj3.bin: proj3.elf
